@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+	<meta charset="UTF-8">
+		<title>JQuery Project Numero Uno</title>
+		<meta name="description" content="My first JQuery project.">
+		<link rel="stylesheet" type="text/css" href="css_normalize.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				
+				$('img').hide();
+
+
+				$('#addClass button').click(function(){
+					$('#addClass p').addClass('blue');
+				})
+				$('#after button').click(function(){
+					$('#after p').after(" I'm outside the p tag!");
+				})
+				$('#append button').click(function(){
+					$('#append p').append("<strong>.append</strong> function. (I'm inside the p tag!)");
+				})
+				$('#show button').click(function(){
+					$('#show img').show('#marley');
+				})
+				$('#attr button').click(function(){
+					$('#marley').attr({width:"150", height:"150"});
+				})
+				$('#hide button').click(function(){
+					$('#marley').hide('marley.jpg');
+				})
+				$('#before button').click(function(){
+					$('#before p').before("I'm before the p tag! ");
+				})
+				$('#html button').click(function(){
+					$('#html p').html("I replace the contents inside the p tag... but I <strong>interpret</strong> any funky characters as html.");
+				})
+				$('#text button').click(function(){
+					$('#text p').text("I replace the contents inside the p tag, but I <strong>display</strong> exactly what is written.");
+				})
+				$('#val button').click(function(){
+					alert($('input:text').val());
+				})
+				$('#toggle button').click(function(){
+					$('#marley2').toggle('display');
+				})
+				$('#up').click(function(){
+					$('#slide p').slideUp();
+				})
+				$('#down').click(function(){
+					$('#slide p').slideDown();
+				})
+				$('#slideToggle button').click(function(){
+					$('#slideToggle p').slideToggle();
+				})
+				$('#in').click(function(){
+					$('#marley_grid').fadeIn('600');
+				})
+				$('#out').click(function(){
+					$('#marley_grid').fadeOut('600');
+				})
+				$('#focus button').click(function(){
+					$('#focus input').focus();
+				})
+				$('#b2').click(function(){
+					$('#storage').data("greeting", "Hi there!");
+				})
+				$('#b1').click(function(){
+					alert($("#storage").data("greeting"));
+				})
+			});
+		</script>
+		<link rel="stylesheet" type="text/css" href="jquery_assignment1.css">
+	</head>
+	<body>
+		<div id="container">
+			<header>
+				<h2>My First Attempt at jQuery</h2>
+				<p>Let's get started, shall we?</p>
+			</header>	
+			<section id="addClass">
+				<h3>.addClass</h3>
+				<p>Click this button to <strong>.addClass</strong> "blue"!</p>
+				<button type="button">Click Me!</button>
+			</section>
+
+			<section id="after">
+				<h3>.after</h3>
+				<p>Click this button to experience the <strong>.after</strong> function.</p>
+				<button type="button">Click Me!</button>
+			</section>
+
+			<section id="append">
+				<h3>.append</h3>
+				<p>Click this this button to experience the </p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="show">
+				<h3>.show</h3>
+				<p>Click this button to <strong>.show</strong> a picture of my cat!</p>
+				<button type="button">Click Me!</button><br>
+				<img id="marley" src="marley.jpg" alt="marley on the couch">
+			</section>
+			
+			<section id="attr">
+				<h3>.attr</h3>
+				<p>Click this button to use the <strong>.attr</strong> function to shrink the picture of my cat.</p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="hide">
+				<h3>.hide</h3>
+				<p>Click this button to <strong>.hide</strong> the picture of my cat.</p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="before">
+				<h3>.before</h3>
+				<p>Click this button to experience the <strong>.before</strong> function.</p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="html">
+				<h3>.html</h3>
+				<p>Click this button to experience the <strong>.html</strong> function.</p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="text">
+				<h3>.text</h3>
+				<p>Click this button to experience the <strong>.text</strong> function.</p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="val">
+				<h3>.val</h3>
+				Type your favorite color: <input type="text" name="color" value=""><br>
+				<p>Click this button to experience the <strong>.val</strong> function.</p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="toggle">
+				<h3>.toggle</h3>
+				<img id="marley2" src="marley2.jpg" alt="marley with her toy">
+				<p>Click this buttton to <strong>.toggle</strong> a cute surprise!</p>
+				<button type="button">Click Me!</button>
+			</section>
+
+			<section id="slide">
+				<h3>.slideUp and .slideDown</h3>
+				<p>Click Button 1 to <strong>.slideUp</strong> and Button 2 to <strong>.slideDown</strong>.</p><br>
+				<button id="up" type="button">Button 1</button>
+				<button id="down" type="button">Button 2</button>
+			</section>
+			
+			<section id="slideToggle">
+				<h3>.slideToggle</h3>
+				<p>Click this button to <strong>.slideToggle</strong> this paragraph.</p>
+				<button type="button">Click Me!</button>
+			</section>
+			
+			<section id="fade">
+				<h3>.fadeIn and .fadeOut</h3>
+				<img id="marley_grid" src="marley_grid.png" alt="marley on her perch">
+				<p>Click Button 1 to <strong>.fadeIn</strong> and Button 2 to <strong>.fadeOut</strong>.</p>
+				<button id="in" type="button">Button 1</button>
+				<button id="out" type="button">Button 2</button>
+			</section>
+						
+			<section id="focus">
+				<h3>.focus</h3>
+				<p>Click this button to <strong>.focus</strong> on the text input box.</p>
+				<button type="button">Click Me!</button>
+				<input type="text" name="focus" value="">
+			</section>
+			
+			<section id="data">
+				<h3>.data</h3>
+				<p>This section will demonstrate the <strong>.data</strong> function. Button 1 will only hold data once Button 2 is clicked.</p> 
+				<p>Press Button 1 first, then Button 2, and then Button 1 again.</p>
+				<button id="b1" type="button">Button 1</button>
+				<button id="b2" type="button">Button 2</button>
+			</section>
+			<div id="storage"></div> <!-- this div holds the stored data -->
+		</div> <!-- closes container -->
+	</body>
+</html>

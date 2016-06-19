@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Sortable Ninja</title>
+		<meta name="description" content="Use images to demonstrate jQueryUI Sortable function">
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<style>
+  			#sortable { list-style-type: none; margin: auto; padding: 0; width: 380px; }
+  			#sortable li { margin: auto; }
+  			#sortable li span { position: absolute; margin-left: -1.3em; }
+  		</style>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$(function() {
+				    $( "#sortable" ).sortable();
+				    $( "#sortable" ).disableSelection();
+				  });
+			}) //closes document.ready
+		</script>
+	</head>
+	<body>
+		<div>
+			<ul id="sortable">
+			  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort2.png" alt="part 2 of puzzle"></li>
+			  
+			  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort1.png" alt="part 1 of puzzle"></li>
+			  
+			  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort4.png" alt="part 4 of puzzle"></li>
+			  
+			  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort3.png" alt="part 3 of puzzle"></li>
+			  
+			  <li class="ui-state-default"><span class="ui-icon ui-icon-arrowthick-2-n-s"></span><img src="sort5.png" alt="part 5 of puzzle"></li>
+			</ul>	
+		</div>	
+	</body>
+</html>
+	

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hover</title>
+		<meta name="description" content="Hover assignment for jQuery section at Coding Dojo">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$('img').hover(function(){
+					var src = $(this).attr('src');
+					var altsrc = $(this).attr('alt-src');
+
+					$(this).attr('src', altsrc);
+					$(this).attr('alt-src', src);
+				})
+			});
+		</script>
+		<link rel="stylesheet" type="text/css" href="hover.css">
+	</head>
+	<body>
+		<h1>Hover Over Ireland</h1>
+		<p>Hover over each image of Ireland to see a different picture of Ireland.</p>
+		<img src="drombeg.jpg" alt="drombeg stone circle/leamaneh castle" alt-src="leamaneh.jpg">
+		<img src="ballybunion.jpg" alt="beach at ballybunion/low tide at unknown castle" alt-src="low_tide.jpg">
+		<img src="sheep_mtn.jpg" alt="sheep on a mountain/sheep on the road" alt-src="road_sheep.jpg">
+		<img src="cobh.jpg" alt="town of cobh/cobh harbor" alt-src="cobh_harbor.jpg">
+	</body>
+</html>
+	

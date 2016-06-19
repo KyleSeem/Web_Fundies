@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Contact Card</title>
+		<meta name="description" content="Contact Card assignment in jQuery section at Coding Dojo">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+
+				$('.cardBack').hide();
+
+				//create event listener for when button is clicked
+				$('button').click(function(){
+
+					//build newCard string
+					var newFront = "<article><div class='cardFront'><h2>" + $('#firstName').val() + " " + $('#lastName').val() + "</h2><p>Click for description!</p></div>";
+					var newBack = "<div class='cardBack' style='display:none'><p>" + $('#desc').val() + "</p></div></article>";
+
+					var newCard = newFront + newBack;
+
+
+					//creates new card frame with classes and appends to card section
+					$('section').append(newCard);
+
+					//clears form and stops button from refreshing page
+					$('input, textarea').val("");
+					return false;
+				}) //closes button click
+
+				//toggle card between front and back content
+				$('body').on('click', '.cardFront', function(){
+					$(this).toggle();
+					$(this).next().toggle();
+				})
+				$('body').on('click', '.cardBack', function(){
+					$(this).toggle();
+					$(this).prev().toggle();
+				})
+			}) //closes document.ready
+		</script>
+		<link rel="stylesheet" type="text/css" href="contact_card.css">
+	</head>
+
+	<body>
+		<div id="container">
+			<header>
+				<h1>My Contact Cards</h1>
+			</header>
+
+			<aside id="formAside">
+				<form>
+					<p>
+						<label>First Name:</label>
+						<input id="firstName" type="text" name="first_name">
+					</p>
+					<p>
+						<label>Last Name:</label>
+						<input id="lastName" type="text" name="last_name">
+					</p>
+					<p>
+						<label>Description:</label><br>
+						<textarea id="desc"></textarea>
+					</p>
+					<button type="submit">Add Contact</button>
+				</form>
+			</aside>
+
+			<section> 
+				<article>
+					<div class="cardFront">
+						<h2>Jacob Jerkface</h2>
+						<p>Click for description!</p>
+					</div>
+					<div class="cardBack">	
+						<p>Software Engineer for Activision subsidiary in NY: Wonderful and supportive partner lovingly referred to as Jerkface or Butthead.</p>
+					</div>	
+				</article>
+
+				<article>
+					<div class="cardFront">
+						<h2>Leah Lovely</h2>
+						<p>Click for description!</p>
+					</div>
+					<div class="cardBack">
+						<p>Architecht at firm based out of Mountainview, CA: Best friend and brilliant mind; creator of the future.</p>
+					</div>	
+				</article>
+			</section>
+		</div>
+	</body>
+</html>

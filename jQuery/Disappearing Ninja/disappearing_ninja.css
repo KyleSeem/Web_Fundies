@@ -1,0 +1,28 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	font-family: Calibri, sans-serif;
+}
+div{
+	width: 1100px;
+	height: 640px;
+	overflow: hidden;
+	margin: auto;
+	padding: 10px;
+}
+h1{
+	color: black;
+	text-align: center;
+}
+img{
+	border: 2px solid #617083;
+	margin: 10px;
+}
+button{
+	font-size: 1.25em;
+	color: white;
+	background: linear-gradient(#4BB1EF, #2B5EAF);
+	border-radius: 5px;
+	margin-top: 100px;
+	padding: .5em 1em;
+}

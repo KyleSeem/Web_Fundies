@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Accordion and Tab</title>
+		<meta name="description" content="Use accordion and tab jQueryUI functions for Coding Dojo Assignment">
+		<link rel="stylesheet" type="text/css" href="accordion.css">
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/start/jquery-ui.css">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+		<script type="text/javascript">
+
+
+			$(document).ready(function(){
+				//jQueryUI script for accordion function
+				$(function(){
+    				$("#accordion").accordion();
+  				});
+
+				//jQueryUI script for selectable function
+				$(function(){
+					$("#selectable").selectable();
+				});  				
+
+				//jQueryUI script for tabs function
+				$(function(){
+					$("#tabs").tabs();
+				});
+
+			}) //closes document.ready
+		</script>
+	</head>
+	<body>
+		<div id="container">
+			<h1>jQueryUI Functions</h1>
+			<p style="font-size:30px;">jQueryUI makes life easier for developers. Just look at some of the things I can create!</p> 
+			<p style="font-size:20px; text-align:center;">(Also, I just discovered the wonderful world of @font-face, so you'll have to deal with that moving forward.)</p>
+
+			<div id="accordion">
+				<h3>Section 1</h3>
+			  	<div>
+				    <p>This uses the .accordion function.</p>
+				</div>
+				
+				<h3>Section 2</h3>
+				<div>
+				    <p>This is a paragraph.</p>
+			  	</div>
+				
+				<h3>Section 3</h3>
+			  	<div>
+				    <p>An unordered list is below:</p>
+				    <ul>
+				      <li>List item one</li>
+				      <li>List item two</li>
+				      <li>List item three</li>
+				    </ul>
+			  	</div>
+			  	
+			  	<h3>Section 4</h3>
+			  	<div>
+				    <p>This is also a paragraph.</p>
+		  		</div>
+		  	</div>	<!-- closes accordion -->
+
+		  	<div id="sel">
+		  		<p>Click the squares to see the .selectable function!</p>
+				<ol id="selectable">
+					<li class="ui-state-default">1</li>
+					<li class="ui-state-default">2</li>
+					<li class="ui-state-default">3</li>
+					<li class="ui-state-default">4</li>
+					<li class="ui-state-default">5</li>
+					<li class="ui-state-default">6</li>
+					<li class="ui-state-default">7</li>
+					<li class="ui-state-default">8</li>
+					<li class="ui-state-default">9</li>
+					<li class="ui-state-default">10</li>
+					<li class="ui-state-default">11</li>
+					<li class="ui-state-default">12</li>
+				</ol>
+		  	</div> <!-- closes selectable's container -->
+		  
+			<div id="tabs">
+				<ul>
+					<li><a href="#tabs-1">Tab 1</a></li>
+					<li><a href="#tabs-2">Tab 2</a></li>
+					<li><a href="#tabs-3">Tab 3</a></li>
+				</ul>
+				<div id="tabs-1">
+					<p>This uses the .tabs function.</p>
+				</div>
+
+				<div id="tabs-2">
+					<p>Here's another paragraph.</p>
+				</div>
+
+				<div id="tabs-3">
+					<p>And another one.</p>
+				</div>
+			</div><!-- closes tabs -->
+
+
+		</div> <!-- closes container -->	
+	</body>
+</html>
+	

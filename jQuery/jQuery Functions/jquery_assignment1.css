@@ -1,0 +1,43 @@
+body{
+	background: #dfe0d7;
+}
+
+#container{
+	width: 600px;
+	height: auto;
+	margin: auto;
+	padding: 20px;
+	overflow: hidden;
+}
+
+header{
+	font-size: 1.2em;
+	text-align: center;
+	border-bottom: 1px solid black;
+}
+
+section{
+	background: #d9d4c7;
+	border: 2px solid #a36370;
+	margin: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+}
+button{
+	background: #dac0c5;
+	border: 2px solid #72454e;
+	border-radius: 5px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+	padding: .25em .5em;
+}
+	
+.blue{
+	color: blue;
+}
+input{
+	background: #f2f0ec;
+}
+img{
+	border: 2px solid #72454e;
+}

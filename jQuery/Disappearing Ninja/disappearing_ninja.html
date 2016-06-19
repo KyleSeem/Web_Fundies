@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Disappearing Ninja</title>
+		<meta name="description" content="Disappearing Ninja assignment for jQuery section at Coding Dojo">
+		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$('img').click(function(){
+					$(this).hide();
+				})
+				$('button').click(function(){
+					$('img').show();
+				})
+
+			});
+		</script>	
+		<link rel="stylesheet" type="text/css" href="disappearing_ninja.css">
+	</head>
+	<body>
+		<div>
+			<h1>Disappearing Rock of Cashel</h1>
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<img src="rock.jpg" alt="Rock of Cashel, Co. Tipperary, Ireland">
+			<button type="button">Restore</button>
+		</div>	
+	</body>
+</html>

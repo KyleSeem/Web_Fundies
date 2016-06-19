@@ -1,0 +1,88 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Calibri, sans-serif;
+}
+
+#container{
+	width: 850px;
+	height: auto;
+	font-size: 1.25em;
+	margin: auto;
+	overflow: hidden;
+}
+h1{
+	border-bottom: 2px solid black;
+	text-align: center;
+	margin-bottom: 20px;
+}
+
+/*aside - form area*/
+	aside{
+		height: auto;
+		overflow: hidden;
+		display: inline-block;
+		vertical-align: top;
+		margin: 0px 10px;
+		padding: 10px 20px;
+		border: 2px solid blue;
+	}
+		form{
+			display: block;
+		}
+		p{
+			margin: 10px 0px 20px 0px;
+		}
+		input{
+			width: 205px;
+			font-size: 18px;
+			float: right;
+			padding: 2px;
+		}
+		#desc{
+			margin-top: 40px;
+		}
+		textarea{
+			width: 300px;
+			height: 200px;
+			font-size: 18px;
+			margin-top: 5px;
+			padding: 5px;
+		}
+		button{
+			font-size: 16px;
+			margin-top: 5px;
+			padding: 2px 5px;
+		}
+
+/*section - card area*/
+	section{
+		width: 450px;
+		height: auto;
+		overflow: hidden;
+		display: inline-block;
+		float: right;
+		clear: left;
+		margin: 0px 10px;	
+	}
+		article{
+			width: 400px;
+			height: 200px;
+			text-align: center;
+			margin-bottom: 20px;
+			float: right;
+			border: 2px solid green;
+		}
+		h2{
+			padding-top: 40px;
+			padding-bottom: 40px;
+		}
+		article div{
+			height: 200px;
+			width: 400px;
+			margin: 0;
+			padding: 0;
+		}
+		.cardBack p{
+			margin: 20px;
+		}
