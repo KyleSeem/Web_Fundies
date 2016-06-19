@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Hungry Bunny</title>
+		<meta name="description" content="A simple Pacman demo">
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<link rel="icon" href="sticker.png">
+	</head>
+	<body>
+		<div id="border">
+			<h1>Hungry Bunny</h1>
+			<h4>Help Hungry Bunny eat all the carrots!</h4>
+			<div id="container">
+				<div id="world"></div>
+				<div id="pacman"></div>
+				<p>Your Score: </p>
+				<div id="score">0</div>
+			</div>	
+		</div>	
+		<script>
+			
+		var world = [
+			[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2], 
+			[2,0,1,1,1,2,1,1,1,1,1,1,1,1,2], 
+			[2,1,2,2,1,2,1,2,2,2,1,2,2,1,2],
+			[2,1,2,1,1,2,1,1,2,1,1,1,2,1,2],
+			[2,1,2,2,2,2,2,2,2,1,2,1,2,1,2],
+			[2,1,2,1,1,1,1,1,2,2,2,1,2,1,2],
+			[2,1,1,1,2,2,2,1,1,1,1,1,2,1,2],
+			[2,2,2,1,2,1,2,2,2,1,2,2,2,1,2],
+			[2,1,1,1,2,1,1,1,1,1,1,1,2,1,2],
+			[2,2,2,2,2,2,2,2,2,2,2,2,2,2,2]
+		];
+		var score = 0;
+		var pacman = {
+			x: 1,
+			y: 1
+		};
+		
+		function displayWorld(){
+			var output = '';
+
+			for(var i=0; i<world.length; i++){
+				output += "\n<div class='row'>\n";
+				for(var j=0; j<world[i].length; j++){
+					if(world[i][j] == 2)
+						output += "<div class='brick'></div>";
+					else if(world[i][j] == 1)
+						output += "<div class='coin'></div>";
+					if(world[i][j] == 0)
+						output += "<div class='empty'></div>";
+					else if(world[i][j] == 3)
+						output += "<div class='berry'></div>";
+				}
+				output += "\n</div>";
+			}
+			// console.log(output);
+			document.getElementById('world').innerHTML = output;
+		}
+		function displayPacman(){
+			document.getElementById('pacman').style.top = pacman.y*50+"px";
+			document.getElementById('pacman').style.left = pacman.x*50+"px";
+		}
+		function displayScore(){
+			document.getElementById('score').innerHTML = score;
+		}
+		
+		displayWorld();	
+		displayPacman();
+
+			var keyCount = 0;
+			var that = this;
+		//movement based on keystroke, also collision detection
+		document.onkeydown = function(e){
+
+			if(e.keyCode == 37 && world[pacman.y][pacman.x-1] !=2){
+				document.getElementById('pacman').style.transform = "initial";
+				pacman.x--;
+			}
+			else if(e.keyCode == 39 && world[pacman.y][pacman.x+1] !=2){
+				document.getElementById('pacman').style.transform = "rotateY(180deg)";
+				pacman.x++;
+			}
+			else if(e.keyCode == 38 && world[pacman.y-1][pacman.x] !=2){
+				document.getElementById('pacman').style.transform = "initial";
+				pacman.y--;
+			}
+			else if(e.keyCode == 40 && world[pacman.y+1][pacman.x] !=2){
+				document.getElementById('pacman').style.transform = "initial";
+				pacman.y++;
+			}
+			keyCount++;
+			// console.log(keyCount);
+			// console.log([pacman.x,pacman.y]);
+
+
+			//randomizes berry placement 
+			var newY = Math.floor((Math.random() *9) + 1);
+			var newX = Math.floor((Math.random() *14) + 1);
+			var newPlot = [newY, newX];
+
+			if(keyCount % 4 === 0 && world[newY][newX] == 1){
+				that.world[newY][newX] = 3;
+			}
+			// console.log("kc " + keyCount);
+			// console.log(newPlot);
+			displayWorld();
+
+
+			//scoring
+			if(world[pacman.y][pacman.x] == 1){
+				world[pacman.y][pacman.x] = 0;
+				score = score+10;
+
+				displayScore();
+				displayWorld();
+			}
+			if(world[pacman.y][pacman.x] == 3){
+				world[pacman.y][pacman.x] = 0;
+				score = score+50;
+
+				displayScore();
+				displayWorld();
+			}
+
+		displayPacman();
+		// console.log(e.keyCode);
+		}
+
+		</script>
+
+	</body>
+</html>
+	

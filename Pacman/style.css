@@ -1,0 +1,102 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Arial, arial, Tahoma, sans-serif;
+}
+@font-face{
+	font-family: TOYZARUX;
+	src: url("TOYZARUX.ttf");
+}
+@font-face{
+	font-family: AnjelikaRose;
+	src: url("Anjelika Rose.ttf");
+}
+@font-face{
+	font-family: MrSunshine;
+	src: url("MrSunshine.ttf");
+}
+h1{
+	font-family: TOYZARUX; 
+	font-size: 60px;
+	color: #ff3385;
+}
+h4{
+	font-family: AnjelikaRose;
+	font-size: 35px;
+	color: #ff0066;
+	margin-bottom: 20px;
+}
+body{
+	background: url("meadow.jpg");
+	/*background-color: #e6f2ff;*/
+	margin: auto;
+	position: relative;
+}
+#border{
+	height: 700px;
+	width: 950px;
+	margin: auto;
+	padding: 20px;
+	text-align: center;
+}
+#container{
+	width: 750px;
+	height: 500px;
+	background: url("path.jpg");
+	position: relative;
+	margin: auto;
+	border-radius: 10px;
+}
+div.row{
+	height: 50px;
+}
+div.row div{
+	width: 50px;
+	height: 50px;
+	display: inline-block;
+}
+div.brick{
+	background: url("clovers.jpg");
+	background-position: center;
+	background-size: cover;
+	border-radius: 10px;
+}
+div.coin{
+	background: url("carrot.gif");
+	background-size: 2.5em;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+div#pacman{
+	background: url("bunny.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	width: 50px;
+	height: 50px;
+	transform: initial;
+	position: absolute;
+}
+div.berry{
+	background: url("berry.gif");
+	background-size: 3em;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+div#winner{
+	background: url(fatbunny.gif);
+}
+p{
+	font-family: MrSunshine;
+	font-size: 40px;
+	color: #ff3385;
+	display: inline-block;
+}
+div#score{
+	font-family: MrSunshine;
+	color: #ff3385;
+	font-size: 36px;
+	display: inline-block;
+	text-align: center;
+	margin-top: 20px;
+}
