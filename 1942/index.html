@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Coding Dojo 1942 Game Assignment">
+		<title>1942 Game</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+	<div id="container">
+		<header>
+			<h1>Kitty Wars</h1>
+		</header>
+		<div id="arena">
+			<div id="health"></div>
+			<div id='score'>0</div>
+			<div id="hero"></div>
+			<div id="enemies"></div>
+			<div id="bullets"></div>
+			<div id="booms"></div>
+		</div>	
+		<div id="start"></div>
+		<div id="endGame"><h1>game over</h1></div>
+	</div>
+
+<script>
+
+	document.getElementById('hero').style.visibility = 'hidden';
+	document.getElementById('endGame').style.visibility = 'hidden';
+	
+// title and intro overlay  	
+	var start = {
+		y: 200,
+		x: 200
+	}
+
+	var outputStart = "<div id='start' style='width: 600px; height: 400px;'><h2>Welcome to Kitty Wars!</h2><h3>Use the left/right arrows to navigate</h3><h3>Use the space bar to shoot</h3><h3>Click the button to start</h3><button id='button' type='button' style='width: 80px; height: 40px;'><strong>START</strong></button></div>";
+	
+	function displayStart(){
+		document.getElementById('start').style['top'] = start.y+ "px";
+		document.getElementById('start').style['left'] = start.x+ "px";
+		document.getElementById('start').innerHTML = outputStart;
+	}
+	displayStart();
+
+//on button click, start div is hidden and game initiates
+	var button = document.getElementById('button');
+	button.onclick = function(b){
+		// console.log(b);
+		if(b.returnValue == true){
+			document.getElementById('start').style['top'] = null;
+			document.getElementById('start').style['left'] = null;
+			document.getElementById('start').innerHTML = null;
+			document.getElementById('hero').style.visibility = 'visible';
+		}
+		gameStart();
+	}
+
+
+// all details of gameplay below gameStart function
+
+	function gameStart(){
+
+		var health = [{},{},{}];
+
+		var score = 0;
+
+		function displayHealth(){
+			var output = '';
+			for(var i = 0; i < health.length; i++){
+				output += "<div class='life' style='top:"+health[i].y+"px; left:"+health[i].x+"px;'></div>";
+			}
+			document.getElementById('health').innerHTML = output;
+		}
+
+		function displayScore(){
+			document.getElementById('score').innerHTML = score;
+		}
+
+
+//enemy related spawning and movement
+		
+		var enemies1 = [{x: 50, y: 0},{x: 150, y: 100},{x: 250, y: -150}, {x: 350, y: 25}, {x: 450, y: -200}];
+		var enemies2 = [{x: 150, y: -10},{x: 250, y: 100},{x: 550, y: -150}, {x: 650, y: 25}, {x: 750, y: -200}];
+		
+		function displayEnemies(enemies, enemyClass){
+			var output = '';
+			for(var i = 0; i < enemies.length; i++){
+				output += "<div class='"+enemyClass+"' style='top:"+enemies[i].y+"px; left:"+enemies[i].x+"px;'></div>";
+			}
+			// console.log(output);
+			document.getElementById('enemies').innerHTML += output;
+		}
+		
+		function moveEnemies(enemies){
+			for(var i=0; i<enemies.length; i++){
+				enemies[i].y +=5;
+
+				if(enemies[i].y > 655){
+					enemies[i].y = 0;
+					enemies[i].x = Math.floor(Math.random()*925) + 25;
+				}
+			}
+		}	
+
+	//colision detection for bullets/enemies 
+		var audio = new Audio('crash.wav');
+
+		function destroyEnemy(enemies){
+			
+			for(var i = 0; i < bullets.length; i++){
+				for(var j = 0; j < enemies.length; j++){
+					if(Math.abs(bullets[i].y - enemies[j].y) < 50 && Math.abs(bullets[i].x - enemies[j].x) < 50){
+						
+						document.getElementById('booms').innerHTML = "<div class='boom' style='top:"+enemies[j].y+"px; left:"+enemies[j].x+"px;'></div>";
+						setTimeout(function(){document.getElementById('booms').innerHTML = ""}, 250);
+						audio.play();
+						enemies[j] = enemies[enemies.length-1];
+						enemies.pop();
+						j--;
+						bullets[i] = bullets[bullets.length-1];
+						bullets.pop();
+
+						i--;
+						score = score+250;
+					}
+				}
+			}
+		}
+
+//hero related spawning and movement	
+		var hero = {
+			y: 650,
+			x: 450
+		}
+
+		function displayHero(){
+			document.getElementById('hero').style['top'] = hero.y+ "px";
+			document.getElementById('hero').style['left'] = hero.x+ "px";
+		}
+
+	//collision detection for hero/enemy, removes that enemy and pushes new, score -500
+		var newX = Math.floor(Math.random()*925) + 25;
+		var lifeCount = 3;
+
+		function heroHit(enemies){
+			for(var i = 0; i < enemies.length; i++){
+				if(Math.abs(enemies[i].y - hero.y) < 50 && Math.abs(enemies[i].x - hero.x) < 50){
+					enemies[i] = enemies[enemies.length-1];
+					enemies.pop();
+					enemies.push({x: newX, y: 0});
+					score = score-500;
+					health.pop();
+					lifeCount = lifeCount-1;
+						if(lifeCount === 0){
+							gameOver();
+						}
+				}
+			}
+		}
+
+
+	//hero's movement (and bullets via space bar) based on arrow keystroke
+		//note: code written for hero up/down movememt, but not utilized
+		document.onkeydown = function(a){
+			if(a.keyCode == 37 && hero.x>25){
+				document.getElementById('hero').style.transform = "initial";
+				hero.x -= 25;
+			}
+			else if(a.keyCode == 39 && hero.x<900){
+				document.getElementById('hero').style.transform = "rotateY(180deg)";
+				hero.x += 25;
+			}
+			// else if(a.keyCode == 38){
+			// 	hero.y -= 10;
+			// }
+			// else if(a.keyCode == 40){
+			// 	hero.y += 10;
+			// }
+			else if(a.keyCode == 32){
+				bullets.push({y: hero.y-25, x: hero.x+6});
+			}
+		}
+
+//bullets related movement
+		var bullets = [];
+
+		function displayBullets(){
+			var output = '';
+			for(var i = 0; i < bullets.length; i++){
+				output += "<div class='bullet' style='top:"+bullets[i].y+"px; left:"+bullets[i].x+"px;'></div>";
+			}
+			document.getElementById('bullets').innerHTML = output;
+		}
+
+		function moveBullets(){
+			for(var i = 0; i < bullets.length; i++){
+				bullets[i].y += -15;
+				
+				if(bullets[i].y < 0){
+					bullets[i] = bullets[bullets.length-1];
+					bullets.pop();
+				}
+			}
+		}
+		
+//basic loop and endgame functions
+		function gameLoop(){
+			displayHealth();
+			displayScore();
+			displayHero();
+			displayHealth();
+			moveEnemies(enemies1);
+			moveEnemies(enemies2);
+			document.getElementById('enemies').innerHTML = '';
+			displayEnemies(enemies1, "enemy1");
+			displayEnemies(enemies2, "enemy2");
+			moveBullets();
+			displayBullets();
+			destroyEnemy(enemies1);
+			destroyEnemy(enemies2);
+			heroHit(enemies1);
+			heroHit(enemies2);
+		}
+
+		var myGame = setInterval(gameLoop, 40);
+
+		//stops gameLoop and clears arena
+		var blankCanvas = "<div id='health'></div><div id='score'>"+score+"</div></div>";
+
+		function gameOver(){
+			setTimeout(function(){clearInterval(myGame)}, 200);
+			document.getElementById('arena').innerHTML = blankCanvas;
+			document.getElementById('endGame').style.visibility = 'visible';
+		}
+	
+	} //closes gameStart function	
+
+</script>
+
+</body>
+</html>

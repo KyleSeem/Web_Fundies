@@ -1,0 +1,143 @@
+@font-face{
+	font-family: Starjhol;
+	src: url("Starjhol.ttf");
+}
+@font-face{
+	font-family: Starjedi;
+	src: url("Starjedi.ttf");
+}
+
+body{
+	background-color:black;
+}
+#container{
+	width: 1000px;
+	height: auto;
+	margin: auto;
+	position: relative;
+}	
+	header{
+		width: auto;
+		height: auto;
+		margin: auto;
+		display: block;
+		border: 2px solid #FFC107;
+	}
+		h1{
+			font-family: Starjhol;
+			margin: 0;
+			margin-top: -10px;
+			font-size: 3em;
+			letter-spacing: 5px;
+			text-align: center;
+			color: #FFC107;
+		}
+	#arena{
+		background: url('space.jpg');
+		width:996px;
+		height:750px;
+		position: absolute;
+		border: 2px solid #FFC107;
+		border-top: none;
+	}		
+		#health{
+			height: 40px;
+			width: 150px;
+			border: 2px solid #FFC107;
+			position: absolute;
+			top: 10px;
+			left: 675px;
+			padding: 7px 1px 5px 5px;
+			padding-top: 7px;
+		}
+		.life{
+			background: url('sprites.png');
+			background-position: -225px -80px;
+			width: 50px;
+			height: 40px;
+			display: inline-block;
+		}
+		#score{
+			height: 50px;
+			width: 125px;
+			border: 2px solid #FFC107;
+			font-family: Starjedi;
+			font-size: 2.25em;
+			color: #FFC107;
+			position: absolute;
+			top: 10px;
+			left: 850px;
+			text-align: center;
+			line-height: 1.1em;
+		}
+		#hero{
+			background: url('sprites.png');
+			background-position: -0px -0px;
+			width:75px;
+			height:80px;
+			position:absolute;
+		}
+		.enemy1{
+			background: url('sprites.png');
+			background-position: -0px -80px;
+			width:75px;
+			height:80px;
+			position:absolute;
+		}
+		.enemy2{
+			background: url('sprites.png');
+			background-position: -75px -80px;
+			width:75px;
+			height:80px;
+			position:absolute;
+		}
+		.bullet{
+			background: url('sprites.png');
+			background-position: -150px -80px;
+			width:55px;
+			height:60px;
+			position:absolute;
+		}
+		.boom{
+			background: url('boom.gif');
+			width: 116px;
+			height: 114px;
+			position: absolute;
+		}
+
+	#start{
+		background: url('start.png');
+		position: absolute;
+		text-align: center;
+		font-family: Sunshine;
+		font-size: 1.25em;
+		color: #FFC107;
+	}
+	#start h2{
+		font-family: Starjhol;
+		margin-top: 1.4em;
+	}
+	#start h3{
+		font-family: Tahoma;
+		font-size: 1em;
+		line-height: .5em;
+	}
+		#button{
+			margin-top: 20px;
+			font-family: Starjhol;
+			font-size: .7em;
+			color: #FFC107;
+			background: linear-gradient(#6F6D6D, #000000);
+			border-radius: 5px;
+			padding-top: 0;
+		}	
+	#endGame{
+		position: absolute;
+		top: 240px;
+		left: 40px;
+		margin: auto;
+		font-family: Starjhol;
+		font-size: 2.8em;
+		color: #FFC107;
+		text-align: center;
+	}
